@@ -61,7 +61,7 @@ class tx_cfcleaguefe_actions_Statistics extends tx_rnbase_action_BaseIOC {
 	 */
 	function handleRequest(&$parameters, &$configurations, &$viewData) {
 	//    global $T3_SERVICES;
-//t3lib_div::debug($T3_SERVICES['cfcleague_statistics'], 'tx_cfcleaguefe_actions_PlayerStatistics');
+//t3lib_utility_Debug::debug($T3_SERVICES['cfcleague_statistics'], 'tx_cfcleaguefe_actions_PlayerStatistics');
 		$scopeArr = tx_cfcleaguefe_util_ScopeController::handleCurrentScope($parameters, $configurations);
 		// Die notwendigen Statistikklassen ermitteln
 		$types = t3lib_div::trimExplode(',', $configurations->get('statisticTypes'), 1);

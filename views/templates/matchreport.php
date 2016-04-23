@@ -4,7 +4,7 @@
   $matchReport = $viewData->offsetGet('matchReport');
   $home = $matchReport->match->getHome();
   $guest = $matchReport->match->getGuest();
-//t3lib_div::debug($home, 'tmpl');
+//t3lib_utility_Debug::debug($home, 'tmpl');
 ?>
 
 <h3 class="cfcleague-report-head3"><? echo $matchReport->getRoundName() . ' ' . $matchReport->getCompetitionName(); ?></h3>

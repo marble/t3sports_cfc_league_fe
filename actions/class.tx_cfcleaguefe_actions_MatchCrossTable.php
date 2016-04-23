@@ -108,7 +108,7 @@ class tx_cfcleaguefe_actions_MatchCrossTable  extends tx_rnbase_action_BaseIOC {
       $teamsArr[$teams[$i]->uid] = $teams[$i];
     }
 
-//t3lib_div::debug($teamsArr, 'vw_matchtable');
+//t3lib_utility_Debug::debug($teamsArr, 'vw_matchtable');
 
     for($i=0; $i < $mCnt; $i++) {
       $matches[$i]->setHome( $teamsArr[$matches[$i]->record['home']]);
@@ -142,7 +142,7 @@ class tx_cfcleaguefe_actions_MatchCrossTable  extends tx_rnbase_action_BaseIOC {
       $currCompetition = $currCompetition[0];
     }
 
-//t3lib_div::debug($scopeArr, 'ac_MatchTable');
+//t3lib_utility_Debug::debug($scopeArr, 'ac_MatchTable');
 
     $matchTable = tx_rnbase::makeInstance('tx_cfcleaguefe_models_matchtable');
     $extended = $configurations->get('matchcrosstable.allData');

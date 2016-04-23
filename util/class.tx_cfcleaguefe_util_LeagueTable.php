@@ -129,7 +129,7 @@ class tx_cfcleaguefe_util_LeagueTable  {
     foreach($penalties As $penalty) {
       // Welches Team ist betroffen?
       if(array_key_exists($penalty->record['team'], $this->_teamData)) {
-//    t3lib_div::debug($penalty, 'tx_cfcleaguefe_util_LeagueTable'); // TODO: Remove me!
+//    t3lib_utility_Debug::debug($penalty, 'tx_cfcleaguefe_util_LeagueTable'); // TODO: Remove me!
         // Die Strafe wird für den View mit abgespeichert
         // Falls es eine Korrektur ist, dann nicht speichern
 				if(!$penalty->isCorrection())

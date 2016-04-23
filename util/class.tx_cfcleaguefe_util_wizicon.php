@@ -80,7 +80,7 @@ class tx_cfcleaguefe_util_wizicon extends tx_rnbase_util_Wizicon {
 	function includeLocalLang_____()	{
 		$llFile = t3lib_extMgm::extPath('cfc_league_fe').'locallang_db.xml';
 		// FIXME: Ändern
-		$LOCAL_LANG = t3lib_div::readLLXMLfile($llFile, $GLOBALS['LANG']->lang);
+		$LOCAL_LANG = t3lib_l10n_parser_Llxml::getParsedData($llFile, $GLOBALS['LANG']->lang);
 		return $LOCAL_LANG;
 	}
 }

@@ -178,12 +178,12 @@ class tx_cfcleaguefe_util_StatisticsHelper {
    */
   private function _isPlayerChanged($inOut, &$player, &$match) {
     $tickerArr = &$match->getMatchNotesByType(($inOut == 'IN') ?  81 : 80);
-//t3lib_div::debug($tickerArr, $inOut.' canges tx_cfcleaguefe_util_StatisticsHelper');
+//t3lib_utility_Debug::debug($tickerArr, $inOut.' canges tx_cfcleaguefe_util_StatisticsHelper');
     for($i = 0 , $size = count($tickerArr); $i < $size; $i++) {
       $matchNote = &$tickerArr[$i];
         $playerChange = ($inOut == 'IN') ? $matchNote->getPlayerChangeIn() : $matchNote->getPlayerChangeOut();
         if($playerChange && $playerChange->uid == $player->uid) {
-//  t3lib_div::debug($matchNote->toString(),'Wechsel utl_stats');
+//  t3lib_utility_Debug::debug($matchNote->toString(),'Wechsel utl_stats');
           // Es ist nicht möglich einen Spieler zweimal auszuwechseln!
           return $matchNote->getMinute();
         }
@@ -196,7 +196,7 @@ class tx_cfcleaguefe_util_StatisticsHelper {
 //      if($matchNote->isChange()) {
 //        $playerChange = ($inOut == 'IN') ? $matchNote->getPlayerChangeIn() : $matchNote->getPlayerChangeOut();
 //        if($playerChange && $playerChange->uid == $player->uid) {
-////  t3lib_div::debug($matchNote->toString(),'Wechsel utl_stats');
+////  t3lib_utility_Debug::debug($matchNote->toString(),'Wechsel utl_stats');
 //          // Es ist nicht möglich einen Spieler zweimal auszuwechseln!
 //          return $matchNote->getMinute();
 //        }

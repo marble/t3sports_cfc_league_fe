@@ -239,7 +239,7 @@ class tx_cfcleaguefe_models_match extends tx_rnbase_model_base {
       for($i=0, $size = count($type); $i < $size; $i++) {
         $notes = $this->_matchNoteTypes[intval($type[$i])];
         if(is_array($notes)) {
-//t3lib_div::debug($notes, 'tx_cfcleaguefe_models_match');
+//t3lib_utility_Debug::debug($notes, 'tx_cfcleaguefe_models_match');
           $ret = array_merge($ret, $notes);
         }
       }
@@ -465,7 +465,7 @@ class tx_cfcleaguefe_models_match extends tx_rnbase_model_base {
         $ret[$uid] =& $this->_profiles[$uid];
       }
 
-//t3lib_div::debug(is_object($this->_profiles2[8]), 'mdl_match');
+//t3lib_utility_Debug::debug(is_object($this->_profiles2[8]), 'mdl_match');
 
     }
     return $ret;
@@ -558,7 +558,7 @@ class tx_cfcleaguefe_models_match extends tx_rnbase_model_base {
    * Liefert den Autor des Spielberichts
    */
   function getReportAuthor($formatter=0, $configKey = 'match.author.') {
-//t3lib_div::debug($this->record, 'mdl_match');
+//t3lib_utility_Debug::debug($this->record, 'mdl_match');
     if($formatter)
       return $formatter->wrap($this->record['game_report_author'], $configKey);
     else

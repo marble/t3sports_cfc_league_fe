@@ -68,7 +68,7 @@ class tx_cfcleaguefe_util_MatchTicker {
 		// Jetzt holen wir die Tickermeldungen für diese Spiele
 		$matches = tx_cfcleaguefe_models_match_note::retrieveMatchNotes($matches);
 
-//    t3lib_div::debug( t3lib_div::milliseconds() - $time, 'util_ticker');
+//    t3lib_utility_Debug::debug( t3lib_div::milliseconds() - $time, 'util_ticker');
 
 		return $matches;
 	}
@@ -180,7 +180,7 @@ class tx_cfcleaguefe_util_MatchTicker {
 					$change->record['comment2'] = $ticker->record['comment'];
 				}
 				else {
-					//t3lib_div::debug($ticker->record, 'Ausw ablegen util_match_ticker');
+					//t3lib_utility_Debug::debug($ticker->record, 'Ausw ablegen util_match_ticker');
 					// Auswechselung ablegen
 					$changeOutHome->put($ticker);
 				}

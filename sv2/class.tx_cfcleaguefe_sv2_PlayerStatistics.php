@@ -79,7 +79,7 @@ static $total = 0;
     if(is_array($players)) 
         foreach($players As $player) {
           // Jeden Spieler aktualisieren
-//if($player->uid == '257') t3lib_div::debug($match->record['round'], 'stats');
+//if($player->uid == '257') t3lib_utility_Debug::debug($match->record['round'], 'stats');
           $this->_countMatch4Player($player, $match, $this->playersArr);
         }
     }
@@ -93,7 +93,7 @@ static $total = 0;
           $this->_countMatch4Player($player, $match, $this->playersArr);
         }
     }
-//t3lib_div::debug( self::$total, 'total sv2_playerstatistics');  
+//t3lib_utility_Debug::debug( self::$total, 'total sv2_playerstatistics');  
   }
   /**
    * Entscheidet, ob die Spieler des Teams in die Statistik eingehen
@@ -206,7 +206,7 @@ static $total = 0;
     // In welchem Team steht der Spieler?
     $team = $match->getTeam4Player($player->uid);
 //if($player->uid == 257)
-//  t3lib_div::debug($match->record, '257 tx_cfcleaguefe_sv2_PlayerStatistics');
+//  t3lib_utility_Debug::debug($match->record, '257 tx_cfcleaguefe_sv2_PlayerStatistics');
 
 
     if($team == 1)
@@ -226,7 +226,7 @@ static $total = 0;
       $min = tx_cfcleaguefe_util_StatisticsHelper::isChangedOut($player, $match);
       if($min > 0)
         $playerData['changed_out'] = intval($playerData['changed_out']) + 1;
-//if($min > 0) t3lib_div::debug($min, 'utl_stats');
+//if($min > 0) t3lib_utility_Debug::debug($min, 'utl_stats');
 
       // Nicht ausgewechselt, aber wurde der Spieler vom Platz gestellt?
       if(intval($min) == 0) {
@@ -409,7 +409,7 @@ function playerStatsCmpPlayer($a, $b) {
   $player1 = $a['player'];
   $player2 = $b['player'];
   
-//t3lib_div::debug(strtoupper($player1->getName(1)), 'no_class_scope'); // TODO: Remove me!
+//t3lib_utility_Debug::debug(strtoupper($player1->getName(1)), 'no_class_scope'); // TODO: Remove me!
   return strcmp(tx_rnbase_util_Misc::removeUmlauts(strtoupper($player1->getName(1))), 
   							tx_rnbase_util_Misc::removeUmlauts(strtoupper($player2->getName(1))));
 }

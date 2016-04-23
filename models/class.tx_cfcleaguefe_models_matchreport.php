@@ -75,7 +75,7 @@ class tx_cfcleaguefe_models_matchreport {
   	
   	$damPics = tx_dam_db::getReferencedFiles('tx_cfcleague_games', $this->match->uid, 'dam_images');
     $out = '';
-//t3lib_div::debug($this->_formatter->cObj->data, 'mdl_report');
+//t3lib_utility_Debug::debug($this->_formatter->cObj->data, 'mdl_report');
     while(list($uid, $filePath) = each($damPics['files'])) {
       $out .= $this->_formatter->getDAMImage($filePath, 'matchreport.images.', 'cfc_league');
     }
@@ -93,7 +93,7 @@ class tx_cfcleaguefe_models_matchreport {
     $damMedia = tx_dam_db::getReferencedFiles('tx_cfcleague_games', $this->match->uid, 'dam_media');
     if (is_object($serviceObj = t3lib_div::makeInstanceService('mediaplayer'))) {
 
-//t3lib_div::debug($damMedia, 'mdl_report');
+//t3lib_utility_Debug::debug($damMedia, 'mdl_report');
 
       // Player holen
       while(list($uid, $media) = each($damMedia['rows'])) {
@@ -181,7 +181,7 @@ class tx_cfcleaguefe_models_matchreport {
    *
    * @param string $confId
    */
-  public function getTickerList($confId) {
+  function getTickerList($confId) {
     $conf = $this->_configurations->get($confId);
     $tickers = array();
     $tickerArr = $this->_getMatchTicker($conf['cron']);
@@ -214,7 +214,7 @@ class tx_cfcleaguefe_models_matchreport {
    *
    * @param $cron chronologischer Reihenfolge: "0" - 90 bis 0, "1" - 0 bis 90
    */
-  protected function _getMatchTicker($cron = 0) {
+  function _getMatchTicker($cron = 0) {
     $ret = ($cron != 1) ? array_reverse($this->_tickerArr) : $this->_tickerArr;
     return $ret;
   }
@@ -236,7 +236,7 @@ class tx_cfcleaguefe_models_matchreport {
     $tickerArr = $this->_getMatchTicker();
     if($this->_configurations->get('tickerTypes')) {
 
-//t3lib_div::debug($this->_configurations->get('tickerTypes'), 'mdl_report');
+//t3lib_utility_Debug::debug($this->_configurations->get('tickerTypes'), 'mdl_report');
 
       foreach($tickerArr As $ticker) {
         if( !(t3lib_div::inList($this->_configurations->get('tickerTypes'), $ticker->getType()) ))
@@ -505,7 +505,7 @@ class tx_cfcleaguefe_models_matchreport {
 
 
     $conf = $this->_configurations->get($confIdAll);
-//t3lib_div::debug($conf, $confIdAll.' - tx_cfcleaguefe_models_matchreport'); // TODO: Remove me!
+//t3lib_utility_Debug::debug($conf, $confIdAll.' - tx_cfcleaguefe_models_matchreport'); // TODO: Remove me!
 		// Jetzt noch ein Wrap über alles
 		return $this->_formatter->stdWrap($ret, $conf, $this->match->record);
 	}
@@ -519,13 +519,8 @@ class tx_cfcleaguefe_models_matchreport {
     $system = t3lib_div::trimExplode('-',$system);
     $players = is_array($players) ? array_values($players) : array();
 
-    $strategyEnable = $this->_configurations->getBool($confId.'strategy.enable');
-    
     // Jetzt die Spieler nach dem System aufteilen
-//    $parts = count($system);
-		if(!$strategyEnable)
-			$system[0] = count($players);
-
+    $parts = count($system);
     $partCnt = 0;
     $partArr = array();
     $splitSum = $system[$partCnt];
@@ -541,18 +536,12 @@ class tx_cfcleaguefe_models_matchreport {
     }
 
 //    $sep = (strlen($conf['seperator']) > 2) ? substr($conf['seperator'], 1, strlen($conf['seperator']) - 2) : $conf['seperator'];
-		$sep = $this->_configurations->get($confId.'strategy.seperator');
-		$hits = array();
-		if(preg_match('/^\|(.*)\|$/', $sep, $hits)) {
-			$sep = $hits[1];
-		}
-		$ret = implode(' - ', $partArr);
+    $ret = implode(' - ', $partArr);
 
-		// Jetzt noch ein Wrap über alles
-//t3lib_div::debug($conf, $confId.' - tx_cfcleaguefe_models_matchreport'); // TODO: remove me
-//tx_rnbase_util_Debug::debug($strategyEnable, $confId.' - '. __FILE__.' : '.__LINE__); // TODO: remove me
-		return $this->_formatter->stdWrap($ret, $conf, $this->match->record);
-	}
+    // Jetzt noch ein Wrap über alles
+//t3lib_utility_Debug::debug($conf, $confId.' - tx_cfcleaguefe_models_matchreport'); // TODO: remove me
+    return $this->_formatter->stdWrap($ret, $conf, $this->match->record);
+  }
 
   /**
    * Lädt das Spiel aus der Datenbank

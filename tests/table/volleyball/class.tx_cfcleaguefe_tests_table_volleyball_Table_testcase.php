@@ -44,7 +44,7 @@ class tx_cfcleaguefe_tests_table_volleyball_Table_testcase extends tx_phpunit_te
 		$params = new ArrayObject();
 		$config = new tx_rnbase_configurations();
 		$config->_dataStore->offsetSet('tableType', '0');
-//t3lib_div::debug($league, 'class.tx_cfcleaguefe_tests_table_volleyball_Table_testcase.php Line: ' . __LINE__); // TODO: remove me
+//t3lib_utility_Debug::debug($league, 'class.tx_cfcleaguefe_tests_table_volleyball_Table_testcase.php Line: ' . __LINE__); // TODO: remove me
 
 		$leagueTable = tx_cfcleaguefe_table_Builder::buildByCompetitionAndMatches($league, $matches, $config, $confId);
 		$leagueTable->getMatchProvider()->setTeams($league->getTeams());
@@ -85,7 +85,7 @@ class tx_cfcleaguefe_tests_table_volleyball_Table_testcase extends tx_phpunit_te
 		// Sicherstellen, daß die Klasse geladen wurde
 		tx_rnbase::load($clazzName);
 		foreach($yamlData As $arr) {
-			if(isset($arr['record']) && is_array($arr['record']))
+			if(is_array($arr['record']))
 				$ret[] = new $clazzName($arr['record']);
 		}
 		return $ret;

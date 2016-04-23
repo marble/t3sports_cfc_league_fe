@@ -8,7 +8,7 @@
   $marks = $league->getTableMarks();
 
   $link->destination($GLOBALS['TSFE']->id); // Das Ziel der Seite vorbereiten
-//  t3lib_div::debug($link->makeUrl(),'tpl_leaguetable');
+//  t3lib_utility_Debug::debug($link->makeUrl(),'tpl_leaguetable');
 ?>
 <style>
 </style>
@@ -18,7 +18,7 @@
 <?
   $keepVars = $configurations->getKeepVars();
   $keepVars = $keepVars->getArrayCopy();
-//    t3lib_div::debug($keepVars,'Template_leaguetable');
+//    t3lib_utility_Debug::debug($keepVars,'Template_leaguetable');
 
   if($viewData->offsetGet('tabletype_select')) {
     echo tx_rnbase_util_FormUtil::createSelect($configurations->getQualifier() . '[tabletype]', 
@@ -53,7 +53,7 @@
   $data = $viewData->offsetGet('tableData');
 
   $cnt = 0;
-//  t3lib_div::debug($data); 
+//  t3lib_utility_Debug::debug($data); 
   foreach($data As $row){
     $css = ($cnt++) % 2;
     if($row['penalties']) $penalties[] = $row['penalties'];
@@ -82,7 +82,7 @@
 <p class="cfcleague-leaguetable-comment">
 <?        foreach($penaltyArr As $penalty) {
           echo '* '. $penalty->record['comment'] . '<br />';
-//          t3lib_div::debug($penalty, 'tmpl');
+//          t3lib_utility_Debug::debug($penalty, 'tmpl');
        } ?>
 </p>
 <?     } ?>

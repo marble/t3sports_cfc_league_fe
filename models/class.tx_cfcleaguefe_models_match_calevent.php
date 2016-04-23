@@ -83,7 +83,7 @@ class tx_cfcleaguefe_models_match_calevent extends tx_cal_phpicalendar_model {
     
 //    return $this->formatter->cObj->substituteMarkerArrayCached($template, $markerArray);
 
-//t3lib_div::debug($markerArray, 'mdl_event');
+//t3lib_utility_Debug::debug($markerArray, 'mdl_event');
 
   }
   

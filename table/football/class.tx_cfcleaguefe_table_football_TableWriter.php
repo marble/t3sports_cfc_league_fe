@@ -63,7 +63,7 @@ class tx_cfcleaguefe_table_football_TableWriter extends tx_cfcleaguefe_table_Tab
 		// Die Tabellensteuerung
 		$subpartArray['###CONTROLS###'] = $this->createControls(tx_rnbase_util_Templates::getSubpart($template, '###CONTROLS###'),
 				$result->getConfigurator(), $configurations, $confId.'controls.');
-//t3lib_div::debug((microtime(true)-$start), 'class.tx_cfcleaguefe_table_football_TableWriter.php'); // TODO: remove me
+//t3lib_utility_Debug::debug((microtime(true)-$start), 'class.tx_cfcleaguefe_table_football_TableWriter.php'); // TODO: remove me
 
 		$out = tx_rnbase_util_Templates::substituteMarkerArrayCached($template, $markerArray, $subpartArray);
 		return $out;

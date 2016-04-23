@@ -10,7 +10,7 @@
   $league = $viewData->offsetGet('league'); // Die aktuelle Liga
   $marks = $league->getTableMarks();
 
-//  t3lib_div::debug($link->makeUrl(),'tpl_leaguetable_teaser');
+//  t3lib_utility_Debug::debug($link->makeUrl(),'tpl_leaguetable_teaser');
 ?>
 
 
@@ -42,8 +42,8 @@
       $idxStart = $idxEnd - $teams2Show;
     }
   }
-//t3lib_div::debug($idxStart, 'st vw');
-//t3lib_div::debug($idxEnd, 'end vw');
+//t3lib_utility_Debug::debug($idxStart, 'st vw');
+//t3lib_utility_Debug::debug($idxEnd, 'end vw');
 
   $cnt = 0;
   for($cnt=0; $cnt < count($data); $cnt++){
@@ -52,7 +52,7 @@
     if($mark && !($cnt >= $idxStart && $cnt < $idxEnd))
       continue;
 
-//t3lib_div::debug($cnt, 'vw');
+//t3lib_utility_Debug::debug($cnt, 'vw');
 
 ?>
 <p class="<? if($row['markClub']){ ?>rowTeam-teaser<? } ?>">

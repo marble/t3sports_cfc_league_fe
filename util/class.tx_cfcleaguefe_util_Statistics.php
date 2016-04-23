@@ -53,7 +53,7 @@ class tx_cfcleaguefe_util_Statistics {
 
 		$this->initServices($services, $scopeArr, $configuration, $parameters);
 		$prov->iterateAll(array($this, 'handleMatch'));
-//		t3lib_div::debug($this, 'class.tx_cfcleaguefe_util_Statistics.php'); // TODO: remove me
+//		t3lib_utility_Debug::debug($this, 'class.tx_cfcleaguefe_util_Statistics.php'); // TODO: remove me
 		$ret = $this->collectData();
 		return $ret;
 	}
@@ -113,15 +113,15 @@ class tx_cfcleaguefe_util_Statistics {
 		// Über alle Spiele iterieren und diese an die Services geben
 		for($j=0, $mc = count($matches); $j < $mc; $j++){
 			for($i=0; $i < $servicesArrCnt; $i++) {
-//t3lib_div::debug( $matches[$j], 'util_statistics');
+//t3lib_utility_Debug::debug( $matches[$j], 'util_statistics');
 				$time = t3lib_div::milliseconds();
 				$service =& $servicesArr[$i];
 				$service->handleMatch($matches[$j], $clubId);
 				$times[$i] = $times[$i] + t3lib_div::milliseconds() - $time;
 			}
 		}
-		//t3lib_div::debug( $times, 'util_statistics');
-//t3lib_div::debug( t3lib_div::milliseconds() - $time, 'util_statistics');
+		//t3lib_utility_Debug::debug( $times, 'util_statistics');
+//t3lib_utility_Debug::debug( t3lib_div::milliseconds() - $time, 'util_statistics');
 		// Abschließend die Daten zusammenpacken
 		$ret = array();
 		for($i=0; $i < $servicesArrCnt; $i++) {

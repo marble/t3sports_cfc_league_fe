@@ -200,7 +200,7 @@ class tx_cfcleaguefe_models_matchtable{
       $cal->add(CALENDAR_DAY_OF_MONTH,$this->_daysAhead);
       $where .= ' tx_cfcleague_games.date < ' . $cal->getTime();
 
-//t3lib_div::debug($this->_daysPast ,'mdl_matchtable ');
+//t3lib_utility_Debug::debug($this->_daysPast ,'mdl_matchtable ');
 
 //      $cal->tests();
     }
@@ -231,10 +231,10 @@ class tx_cfcleaguefe_models_matchtable{
     if($limit)
       $arr['limit'] = $limit;
 
-//t3lib_div::debug($cal ,'Spiele: ');
+//t3lib_utility_Debug::debug($cal ,'Spiele: ');
 
 
-//t3lib_div::debug($club, 'md_matchtable');
+//t3lib_utility_Debug::debug($club, 'md_matchtable');
 
     $rows = tx_rnbase_util_DB::doSelect($what, $from, $arr, 0);
 

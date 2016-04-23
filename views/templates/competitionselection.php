@@ -4,7 +4,7 @@
   tx_div::load('tx_rnbase_util_FormUtil');
 
   $viewData =& $configurations->getViewData();
-//t3lib_div::debug($configurations->_keepVars,'vd');
+//t3lib_utility_Debug::debug($configurations->_keepVars,'vd');
   $link->destination($GLOBALS['TSFE']->id); // Das Ziel der Seite vorbereiten
 ?>
 

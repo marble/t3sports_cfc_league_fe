@@ -68,7 +68,7 @@ class tx_cfcleaguefe_actions_LiveTickerList extends tx_rnbase_action_BaseIOC {
     $viewData =& $configurations->getViewData();
     $viewData->offsetSet('matches', $matches);
 
-// t3lib_div::debug($viewData,'ac_tickerlist');
+// t3lib_utility_Debug::debug($viewData,'ac_tickerlist');
 
     // View
     $view = tx_rnbase::makeInstance('tx_cfcleaguefe_views_LiveTickerList');

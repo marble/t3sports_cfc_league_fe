@@ -15,14 +15,14 @@
     else
       $link = 0; // Es werden keine Links gesetzt
 
-//t3lib_div::debug($link, 'tmpl_matchtable');
+//t3lib_utility_Debug::debug($link, 'tmpl_matchtable');
 
 ?>
 
 <table cellspacing="0" cellpadding="0" class="cfcleague-matchtable">
 <?php 
   $cnt = 0;
-  //t3lib_div::debug($data); 
+  //t3lib_utility_Debug::debug($data); 
   foreach($data As $match){
     $css = ($cnt++) % 2;
 ?>

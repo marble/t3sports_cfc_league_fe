@@ -63,7 +63,7 @@ class tx_cfcleaguefe_views_Statistics extends tx_rnbase_view_Base {
 			$srvMarker = $service->getMarker($configurations);
 			$subpartArray['###STATISTIC_'.strtoupper($type).'###'] = $srvMarker->parseTemplate($srvTemplate, $stats, $configurations->getFormatter(), 'statistics.'.$type.'.', strtoupper($type));
 		}
-//t3lib_div::debug($subpartArray, 'tx_cfcleaguefe_views_Statistics');
+//t3lib_utility_Debug::debug($subpartArray, 'tx_cfcleaguefe_views_Statistics');
  		$out = $cObj->substituteMarkerArrayCached($template, $markerArray, $subpartArray); //, $wrappedSubpartArray);
 		return $out;
 	}

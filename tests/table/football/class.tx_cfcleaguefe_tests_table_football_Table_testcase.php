@@ -99,7 +99,7 @@ class tx_cfcleaguefe_tests_table_football_Table_testcase extends tx_phpunit_test
 		$leagueTable->getMatchProvider()->setTeams($league->getTeams());
 		$result = $leagueTable->getTableData();
   
-//    t3lib_div::debug($result, 'tx_cfcleaguefe_tests_LeagueTable_testcase');
+//    t3lib_utility_Debug::debug($result, 'tx_cfcleaguefe_tests_LeagueTable_testcase');
     
 		// Tabelle 3-P.
 		// T3 - 2 3:0 6
@@ -131,7 +131,7 @@ class tx_cfcleaguefe_tests_table_football_Table_testcase extends tx_phpunit_test
 		// Sicherstellen, daß die Klasse geladen wurde
 		tx_rnbase::load($clazzName);
 		foreach($yamlData As $arr) {
-			if(isset($arr['record']) && is_array($arr['record']))
+			if(is_array($arr['record']))
 				$ret[] = new $clazzName($arr['record']);
 		}
 		return $ret;

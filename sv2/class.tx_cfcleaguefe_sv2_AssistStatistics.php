@@ -55,7 +55,7 @@ class tx_cfcleaguefe_sv2_AssistStatistics extends tx_cfcleaguefe_sv2_PlayerStati
       }
     }
     usort($ret, 'cmpAssists');
-//t3lib_div::debug($playerData, 'tx_cfcleaguefe_sv2_AssistStatistics');
+//t3lib_utility_Debug::debug($playerData, 'tx_cfcleaguefe_sv2_AssistStatistics');
     return $ret;
   }
 }

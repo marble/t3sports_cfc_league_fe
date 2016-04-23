@@ -83,7 +83,7 @@ class tx_cfcleaguefe_models_match_note extends tx_rnbase_model_base {
 		if($formatter->configurations->get($confId.'hide') == '1') // Die Meldung soll nicht gezeigt werden
 			return '';
 
-//  t3lib_div::debug($ticker->uid, 'arr mdl_note');
+//  t3lib_utility_Debug::debug($ticker->uid, 'arr mdl_note');
 		// Wenn der Ticker für den eigene Vereins ist, einen Eintrag im Register setzen
 		$GLOBALS['TSFE']->register['T3SPORTS_NOTE_FAVCLUB'] = $ticker->isFavClub(); // XXX: Access to image size by TS
 
@@ -125,7 +125,7 @@ class tx_cfcleaguefe_models_match_note extends tx_rnbase_model_base {
 			}
 		}
 //if($ticker->uid == 1455)
-//  t3lib_div::debug($ticker->record, 'tx_cfcleaguefe_models_match_note');
+//  t3lib_utility_Debug::debug($ticker->record, 'tx_cfcleaguefe_models_match_note');
 		$cObj = $formatter->configurations->getCObj(1);
 		$cObj->data = $ticker->record;
 		foreach($ticker->record AS $key => $val) {
@@ -155,7 +155,7 @@ class tx_cfcleaguefe_models_match_note extends tx_rnbase_model_base {
 		$ret = implode($sep, $ret);
 
     // Abschließend nochmal den Ergebnisstring wrappen
-//t3lib_div::debug($arr, 'arr mdl_note');
+//t3lib_utility_Debug::debug($arr, 'arr mdl_note');
 		return $formatter->wrap($ret, $confId, $ticker->record);
 	}
 
@@ -475,7 +475,7 @@ class tx_cfcleaguefe_models_match_note extends tx_rnbase_model_base {
 			$matchIds[] = $matches[$i]->uid;
 		}
 
-//  t3lib_div::debug($matches[i]->uid, 'mdl_note');
+//  t3lib_utility_Debug::debug($matches[i]->uid, 'mdl_note');
 		$matchIds = implode(',', $matchIds); // ID-String erstellen
 
 		$what = '*';
@@ -497,8 +497,8 @@ class tx_cfcleaguefe_models_match_note extends tx_rnbase_model_base {
 			$matchesHash[$matchNotes[$i]->record['game']]->addMatchNote($matchNotes[$i]);
 		}
 
-//  t3lib_div::debug($matchesHash[172], 'mdl_note');
-//  t3lib_div::debug($matches[19], 'mdl_note');
+//  t3lib_utility_Debug::debug($matchesHash[172], 'mdl_note');
+//  t3lib_utility_Debug::debug($matches[19], 'mdl_note');
 		return $matches;
 	}
 
